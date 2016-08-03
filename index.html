@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introduccion a R</title>
+  <meta charset="Windows-1252">
+  <meta name="description" content="Introduccion a R">
+  <meta name="author" content="Antonio Martinez Pineda">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="assets/img/dec.jpg">
+  </aside>
+  <hgroup class="auto-fadein">
+    <h1>Introduccion a R</h1>
+    <h2>Breve, muy breve</h2>
+    <p>Antonio Martinez Pineda<br/>Division de Educacion Continua Fac. Psicologia</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>¿Qué es R?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>R es un primeramente un lenguaje de programación y también un ambiente estadístico con amplias capacidades analíticas y gráficas. Un gran número de los líderes innovadores en investigación de todas las áreas de conocimiento han optado por utilizar R por sus ventajas prácticas ante los paquetes estadísticos comerciales, por mencionar las más importantes, R permite conocer los algoritmos con que se realizan los análisis y modificar los outputs de acuerdo a las necesidades del investigador, además de contar con características gráficas que permiten incluso modelación en 3D y animación. Por último, pero en cierta forma lo más atractivo para la academia, R es un ambiente de <em>open source</em>, miles de colaboradores aumentan y dan mantenimiento día a día a las capacidades de R y es gratuito por lo que las limitaciones de presupuesto no son un obstáculo.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>¿Cómo funciona R?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>R trabaja orienatado a objetos en los cuales se almacena información, lo cual es una gran ventaja ya que una vez obtenida o cargada la información puede llamarse fácilmente para realizar un análisis o agregar la información con otra.</p>
+
+<p>La asignación de datos a un objeto se realiza mediante el símbolo &lt;- aunque también puede realizarse mediante el signo de igual. El código de R es sensible a las mayúsculas y minúsculas por lo que utilizarlas implica diferencias de forma que R no es lo mismo que r.</p>
+
+<p>Existen diferentes tipos de objeto en R.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Funciones</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Uno de los componentes principales para trabajar en R son las funciones, estos son comandos que realizan una acción en el programa. Las funciones tienen un esquema general como el siguiente: nombre.funcion(argumentos). Como R es un lenguaje nos permite crear nuestras propias funciones.</p>
+
+<pre><code class="r">#Función para obtener la media
+mean(mtcars$mpg)
+</code></pre>
+
+<pre><code>## [1] 20.09062
+</code></pre>
+
+<pre><code class="r">#Argumentos de mean()
+args(mean)
+</code></pre>
+
+<pre><code>## function (x, ...) 
+## NULL
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Vectores</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Son la unidad funcional de R, los vectores son objetos que tienen una sola dimensión y almacenan elementos de un solo tipo (numérico,caracter,lógico,etc.)</p>
+
+<pre><code class="r">numeros&lt;- c(1:4) #Vector numérico
+class(numeros)
+</code></pre>
+
+<pre><code>## [1] &quot;integer&quot;
+</code></pre>
+
+<pre><code class="r">numeros
+</code></pre>
+
+<pre><code>## [1] 1 2 3 4
+</code></pre>
+
+<pre><code class="r">letras&lt;- letters[1:4] #Vector de caracteres
+class(letras)
+</code></pre>
+
+<pre><code>## [1] &quot;character&quot;
+</code></pre>
+
+<pre><code class="r">letras
+</code></pre>
+
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Factores</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A diferencia de los vectores de caracteres el factor determina que valores puede tomar nuestro vector. Los factores pueden ser ordenados o no. Como en todos los vectores podemos ubicar elementos señalando su posición entre corchetes.</p>
+
+<pre><code class="r">letras
+</code></pre>
+
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot;
+</code></pre>
+
+<pre><code class="r">fletras&lt;- factor(letras);class(fletras)
+</code></pre>
+
+<pre><code>## [1] &quot;factor&quot;
+</code></pre>
+
+<pre><code class="r">fletras
+</code></pre>
+
+<pre><code>## [1] a b c d
+## Levels: a b c d
+</code></pre>
+
+<pre><code class="r">fletras[3]
+</code></pre>
+
+<pre><code>## [1] c
+## Levels: a b c d
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Arreglos</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Los arreglos son objetos que tienen al menos dos dimensiones y que solo pueden contener elementos de una misma clase.</p>
+
+<pre><code class="r">arreglo&lt;- array(1:12,dim = c(2,3,2))
+dim(arreglo)
+</code></pre>
+
+<pre><code>## [1] 2 3 2
+</code></pre>
+
+<pre><code class="r">arreglo
+</code></pre>
+
+<pre><code>## , , 1
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3]
+## [1,]    7    9   11
+## [2,]    8   10   12
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Matrices</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">matriz&lt;- matrix(1:4,nrow = 2,ncol = 2)#Matriz de 2X2
+inversa&lt;- solve(matriz)#Matriz inversa de la matriz
+matriz #Las matrices son arreglos de dos dimensiones
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4
+</code></pre>
+
+<pre><code class="r">inversa
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]   -2  1.5
+## [2,]    1 -0.5
+</code></pre>
+
+<pre><code class="r">matriz%*%inversa#matriz*inversa=matriz de identidad
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Matrices (cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Los elementos de una matriz pueden ubicarse de forma similar a las coordenadas, por ejemplo, <code>martiz[1,2]</code> ubica el elemento en la fila uno y la columna dos.</p>
+
+<pre><code class="r">matriz
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4
+</code></pre>
+
+<pre><code class="r">matriz[1,2]
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Listas</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Las listas son objetos que nos permiten almacenar otros objetos de distinta clase.</p>
+
+<pre><code class="r">lista&lt;- list(numeros,letras,arreglo,matriz)
+lista
+</code></pre>
+
+<pre><code>## [[1]]
+## [1] 1 2 3 4
+## 
+## [[2]]
+## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot;
+## 
+## [[3]]
+## , , 1
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3]
+## [1,]    7    9   11
+## [2,]    8   10   12
+## 
+## 
+## [[4]]
+##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Listas (cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Los elementos de una lista pueden extraerse con [[]] o cuando se asigna un nombre con $.</p>
+
+<pre><code class="r">names(lista)&lt;- c(&quot;numeros&quot;, &quot;letras&quot;, &quot;arreglo&quot;, &quot;matriz&quot;)
+lista[[1]]
+</code></pre>
+
+<pre><code>## [1] 1 2 3 4
+</code></pre>
+
+<pre><code class="r">lista$letras
+</code></pre>
+
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Bases de datos</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Las bases de datos son una variación de las listas, permiten almacenar vectores de objetos de diferente tipo (numéricas, lógicas, etc.) pero todos estos objetos deben ser de la misma longitud. Generalmente en las bases de datos tenemos variables en las columnas y observaciones en las filas.</p>
+
+<pre><code class="r">df&lt;- data.frame(nombre= c(&quot;Ana&quot;,&quot;Luis&quot;,&quot;Juan&quot;, &quot;Mary&quot;), num.list=numeros,calificacion=letras)
+df
+</code></pre>
+
+<pre><code>##   nombre num.list calificacion
+## 1    Ana        1            a
+## 2   Luis        2            b
+## 3   Juan        3            c
+## 4   Mary        4            d
+</code></pre>
+
+<pre><code class="r">df[1,2]#Elemento de la fila uno columna dos
+</code></pre>
+
+<pre><code>## [1] 1
+</code></pre>
+
+<pre><code class="r">df$calificacion
+</code></pre>
+
+<pre><code>## [1] a b c d
+## Levels: a b c d
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Bases de datos (cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">#La función str nos da un resumen de qué contiene información importante de la base de datos
+str(df)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    4 obs. of  3 variables:
+##  $ nombre      : Factor w/ 4 levels &quot;Ana&quot;,&quot;Juan&quot;,&quot;Luis&quot;,..: 1 3 2 4
+##  $ num.list    : int  1 2 3 4
+##  $ calificacion: Factor w/ 4 levels &quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;: 1 2 3 4
+</code></pre>
+
+<pre><code class="r">summary(df) #También la función summary es de mucha utilidad
+</code></pre>
+
+<pre><code>##   nombre     num.list    calificacion
+##  Ana :1   Min.   :1.00   a:1         
+##  Juan:1   1st Qu.:1.75   b:1         
+##  Luis:1   Median :2.50   c:1         
+##  Mary:1   Mean   :2.50   d:1         
+##           3rd Qu.:3.25               
+##           Max.   :4.00
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Guardar y cargar objetos en R</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">objects() #Lista de objetos en el espacio de trabajo
+</code></pre>
+
+<pre><code>##  [1] &quot;arreglo&quot;       &quot;df&quot;            &quot;fletras&quot;       &quot;inversa&quot;      
+##  [5] &quot;letras&quot;        &quot;lista&quot;         &quot;matriz&quot;        &quot;matrizInversa&quot;
+##  [9] &quot;numeros&quot;       &quot;x&quot;
+</code></pre>
+
+<pre><code class="r">ls()      #Igual que objects()
+</code></pre>
+
+<pre><code>##  [1] &quot;arreglo&quot;       &quot;df&quot;            &quot;fletras&quot;       &quot;inversa&quot;      
+##  [5] &quot;letras&quot;        &quot;lista&quot;         &quot;matriz&quot;        &quot;matrizInversa&quot;
+##  [9] &quot;numeros&quot;       &quot;x&quot;
+</code></pre>
+
+<pre><code class="r">save.image()#Guarda una imagen del espacio de trabajo en formato .RData
+save(df,file=&quot;basedatos.RData&quot;)#Guardar un objeto en específico
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Guardar y cargar objetos en R (cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">rm(df) #Se borra el objeto del ambiente global
+ls() #Ya no aparece df
+</code></pre>
+
+<pre><code>## [1] &quot;arreglo&quot;       &quot;fletras&quot;       &quot;inversa&quot;       &quot;letras&quot;       
+## [5] &quot;lista&quot;         &quot;matriz&quot;        &quot;matrizInversa&quot; &quot;numeros&quot;      
+## [9] &quot;x&quot;
+</code></pre>
+
+<pre><code class="r">load(&quot;basedatos.Rdata&quot;)#Se carga el objeto guardado
+ls()#Nuevamente tenemos el objeto df
+</code></pre>
+
+<pre><code>##  [1] &quot;arreglo&quot;       &quot;df&quot;            &quot;fletras&quot;       &quot;inversa&quot;      
+##  [5] &quot;letras&quot;        &quot;lista&quot;         &quot;matriz&quot;        &quot;matrizInversa&quot;
+##  [9] &quot;numeros&quot;       &quot;x&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Importar datos</h2>
+  </hgroup>
+  <article data-timings="">
+    <table><thead>
+<tr>
+<th align="left">Paquete</th>
+<th align="left">Archivos</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">xlsReadWrite</td>
+<td align="left">Excel (.xls)</td>
+</tr>
+<tr>
+<td align="left">XLConnect</td>
+<td align="left">Excel (.xlsx)</td>
+</tr>
+<tr>
+<td align="left">RODBC</td>
+<td align="left">Bases compiladoras ODBC (MS SQLServer, MS Access, Oracle)</td>
+</tr>
+<tr>
+<td align="left">RMySQL</td>
+<td align="left">Bases de datos compiladoras (MySQL)</td>
+</tr>
+<tr>
+<td align="left">RSQLite</td>
+<td align="left">SQLite</td>
+</tr>
+<tr>
+<td align="left">foreing</td>
+<td align="left">Minitab, S3, SAS, SPSS, Stata, Systat, dBase, ARFF, DBF,Octave,REC</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Importar datos de texto</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Para importar datos desde archivos de texto existe más de una docena de funciones, las más utilizadas son <code>read.table()</code> y <code>read.csv()</code>.</p>
+
+<pre><code class="r">?read.csv
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Ayuda</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>La gran mayoría de los paquetes y funciones de R tienen documentos de ayuda asociados, estos documentos pueden consultarse con la funciones &#39;help()&#39; o &#39;?&#39; si se conoce el nombre de la función o paquete que se quiere consultar, o se pueden utilizar terminos de búsqueda con la función &#39;apropos()&#39;</p>
+
+<p>Además existen foros de ayuda para la comunidad usuaria de R y generalmente googlear alguna pregunta sobre cómo realizar algún procedimiento con R dará varios resultados que pueden ser de utilidad.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='¿Qué es R?'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='¿Cómo funciona R?'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Funciones'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Vectores'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Factores'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Arreglos'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Matrices'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Matrices (cont.)'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Listas'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Listas (cont.)'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Bases de datos'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Bases de datos (cont.)'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Guardar y cargar objetos en R'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Guardar y cargar objetos en R (cont.)'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Importar datos'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Importar datos de texto'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Ayuda'>
+         17
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
